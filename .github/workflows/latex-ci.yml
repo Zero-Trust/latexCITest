@@ -1,0 +1,18 @@
+name: LaTeX to PDF
+
+on:
+  push:
+    paths: main.tex
+    tags: v*.*.*
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build docker image
+        uses: huyu-no-yozora/latexCITest/.github/actions/latex@master
+
+
